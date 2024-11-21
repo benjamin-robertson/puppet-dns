@@ -154,17 +154,6 @@ describe 'dns::logging::channel' do
         it { is_expected.not_to compile }
       end
 
-      describe 'with log_type = file and file_size and file_version not set' do
-        let(:params) do
-          {
-            'log_type'      => 'file',
-            'file_path'     => '/path/to/file.log',
-          }
-        end
-
-        it { is_expected.to compile.with_all_deps }
-      end
-
       describe 'with log_type = file and file_versions not set' do
         let(:params) do
           {
@@ -174,7 +163,7 @@ describe 'dns::logging::channel' do
           }
         end
 
-        it { is_expected.to compile.with_all_deps }
+        it { is_expected.not_to compile }
       end
 
       describe 'with log_type = syslog and all options set' do
